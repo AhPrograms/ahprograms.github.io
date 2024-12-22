@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ньюсбар ПА</title>
+    <style>
+        @font-face {
+            font-family: 'Helvetica Neue';
+            src: url('HelveticaNeueCyr-Bold.ttf';
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #3498db;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .news-bar {
+            background-color: #2980b9;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .news-item {
+            display: none;
+        }
+
+        .news-item.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-bar">
+        <div class="news-item active" id="news1">Новость 1</div>
+        <div class="news-item" id="news2">Новость 2</div>
+        <div class="news-item" id="news3">Новость 3</div>
+    </div>
+
+    <script>
+        var newsItems = document.querySelectorAll('.news-item');
+        var currentNews = 0;
+
+        function changeNews() {
+            newsItems[currentNews].classList.remove('active');
+            currentNews = (currentNews + 1) % newsItems.length;
+            newsItems[currentNews].classList.add('active');
+        }
+
+        setInterval(changeNews, 5000); // Интервал между сменой новостей в миллисекундах (здесь 5000 мс)
+    </script>
+</body>
+</html>
